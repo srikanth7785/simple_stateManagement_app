@@ -2,7 +2,7 @@
 
 A sample that demostrates [`ValueNotifier`](https://api.flutter.dev/flutter/foundation/ValueNotifier-class.html) in [flutter](https://flutter.dev).
 
-This is a basic example of one of the state management techniques that come inbuilt with flutter. [`ValueListenableBuilder`](https://api.flutter.dev/flutter/widgets/ValueListenableBuilder-class.html) can be used to build app throughout different states of app.
+This is a basic example of one of the state management techniques that comes inbuilt with flutter. [`ValueListenableBuilder`](https://api.flutter.dev/flutter/widgets/ValueListenableBuilder-class.html) can be used to build app throughout different states.
 
 ---
 ## Architecture 📏🛠
@@ -11,7 +11,7 @@ This is a basic example of one of the state management techniques that come inbu
 ---
 ## Project Board 🎯
 
-[Basic Kanban](https://github.com/srikanth7785/simple_stateManagement_app/projects/2) board is used through out the development of this project, the same can be found [here.](https://github.com/srikanth7785/simple_stateManagement_app/projects/2)
+[Basic Kanban](https://docs.github.com/en/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards#templates-for-project-boards) board is used through out the development of this project, the same can be found [here.](https://github.com/srikanth7785/simple_stateManagement_app/projects/2)
 
 ---
 ## Quick Peek 👀

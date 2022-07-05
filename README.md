@@ -1,16 +1,26 @@
 # simple_app
 
-A new Flutter project.
+A sample that demostrates [`ValueNotifier`](https://api.flutter.dev/flutter/foundation/ValueNotifier-class.html) in [flutter](https://flutter.dev).
 
-## Getting Started
+This is a basic example of one of the state management techniques that come inbuilt with flutter. [`ValueListenableBuilder`](https://api.flutter.dev/flutter/widgets/ValueListenableBuilder-class.html) can be used to build app throughout different states of app.
 
-This project is a starting point for a Flutter application.
+---
+## Architecture 📏🛠
+[Model-View-Controller (MVC)](https://g.co/kgs/6YDU8y) architecture is followed.
 
-A few resources to get you started if this is your first Flutter project:
+---
+## Project Board 🎯
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+[Basic Kanban](https://github.com/srikanth7785/simple_stateManagement_app/projects/2) board is used through out the development of this project, the same can be found [here.](https://github.com/srikanth7785/simple_stateManagement_app/projects/2)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+---
+## Quick Peek 👀
+
+
+| Home | Checkout |
+|:---:|:---:|
+|<img src="HomeScreen.png">|<img src="CheckoutScreen.png">|
+
+---
+
+Feel free to check out my other [repositories](https://github.com/srikanth7785?tab=repositories) as well.

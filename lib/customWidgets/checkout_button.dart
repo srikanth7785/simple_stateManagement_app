@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:simple_app/Screens/checkout.dart';
+import 'package:simple_app/Screens/checkout_screen.dart';
 import 'package:simple_app/businessLogic/cart_manager.dart';
 import 'package:simple_app/customWidgets/toast.dart';
 
 class CheckoutButton extends StatelessWidget {
-  const CheckoutButton({Key? key,}) : super(key: key);
+  const CheckoutButton({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

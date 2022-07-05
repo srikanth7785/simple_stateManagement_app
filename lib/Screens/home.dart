@@ -25,7 +25,7 @@ class _HomeState extends State<Home> {
               style: _textTheme.titleMedium!.copyWith(color: Colors.white),
             ),
             Text(
-              "Continue you shopping!",
+              "continue your shopping!",
               style: _textTheme.bodySmall!
                   .copyWith(color: Colors.white70, fontStyle: FontStyle.italic),
             ),

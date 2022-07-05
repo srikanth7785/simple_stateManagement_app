@@ -21,7 +21,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              "You are almost done 👋",
+              "You are almost done...",
               style: _textTheme.titleMedium!.copyWith(color: Colors.white),
             ),
             Text(

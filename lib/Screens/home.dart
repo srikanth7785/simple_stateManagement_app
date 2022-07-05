@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:simple_app/customWidgets/checkout_button.dart';
+import 'package:simple_app/customWidgets/product_card.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -14,7 +15,7 @@ class _HomeState extends State<Home> {
     final TextTheme _textTheme = Theme.of(context).textTheme;
     return Scaffold(
       appBar: AppBar(
-        elevation: 0,
+        // elevation: 0,
         title: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -30,6 +31,12 @@ class _HomeState extends State<Home> {
           ],
         ),
         actions: const [CheckoutButton()],
+      ),
+      body: ListView.builder(
+        itemCount: 25,
+        itemBuilder: (BuildContext context, int index) {
+          return ProductCard(index: index);
+        },
       ),
     );
   }

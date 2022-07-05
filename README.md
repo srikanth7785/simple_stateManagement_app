@@ -19,7 +19,7 @@ This is a basic example of one of the state management techniques that come inbu
 
 | Home | Checkout |
 |:---:|:---:|
-|<img src="HomeScreen.png">|<img src="CheckoutScreen.png">|
+|<img src="HomeScreen.png" height="500px">|<img src="CheckoutScreen.png" height="500px">|
 
 ---
 

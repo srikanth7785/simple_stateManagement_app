@@ -4,18 +4,20 @@ import 'package:simple_app/models/product_model.dart';
 
 class ProductCard extends StatelessWidget {
   final int index;
-  final Product product;
   final bool isAdded;
+  final void Function(int) onAddOrRemove;
   const ProductCard({
     Key? key,
     required this.index,
-    required this.product,
     required this.isAdded,
+    required this.onAddOrRemove,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     final TextTheme _textTheme = Theme.of(context).textTheme;
+    final Product product =
+        Product.fromInfo(ProductInfo.INFO, ProductInfo.COLORS);
     List<Color> _watchColors =
         product.colors.map((color) => Color(int.parse(color))).toList();
     return Card(
@@ -130,9 +132,7 @@ class ProductCard extends StatelessWidget {
                           color: Colors.deepPurple,
                         )
                       : const Icon(Icons.add_shopping_cart),
-                  onPressed: () {
-                    debugPrint("adding");
-                  },
+                  onPressed: () => onAddOrRemove(index),
                 ),
               ),
             ],

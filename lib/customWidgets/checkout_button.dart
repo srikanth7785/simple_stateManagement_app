@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:simple_app/businessLogic/cart_manager.dart';
 
 class CheckoutButton extends StatelessWidget {
   const CheckoutButton({Key? key}) : super(key: key);
@@ -33,10 +34,16 @@ class CheckoutButton extends StatelessWidget {
               color: Colors.red,
               shape: BoxShape.circle,
             ),
-            child: Text(
-              "3",
-              textAlign: TextAlign.center,
-              style: _textTheme.caption!.copyWith(color: Colors.white),
+            child: ValueListenableBuilder(
+              valueListenable: CartCollection(),
+              builder: (context, values, child) {
+                List<CartItem> cartItems = values as List<CartItem>;
+                return Text(
+                  "${cartItems.length}",
+                  textAlign: TextAlign.center,
+                  style: _textTheme.caption!.copyWith(color: Colors.white),
+                );
+              },
             ),
           ),
         ),

@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:simple_app/businessLogic/cart_manager.dart';
 import 'package:simple_app/customWidgets/checkout_button.dart';
 import 'package:simple_app/customWidgets/product_card.dart';
-import 'package:simple_app/dummyData/info.dart';
-import 'package:simple_app/models/product_model.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -12,8 +11,6 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  Product product = Product.fromInfo(ProductInfo.INFO, ProductInfo.COLORS);
-
   @override
   Widget build(BuildContext context) {
     final TextTheme _textTheme = Theme.of(context).textTheme;
@@ -36,10 +33,28 @@ class _HomeState extends State<Home> {
         ),
         actions: const [CheckoutButton()],
       ),
-      body: ListView.builder(
-        itemCount: 25,
-        itemBuilder: (BuildContext context, int index) {
-          return ProductCard(index: index, product: product, isAdded: false);
+      body: ValueListenableBuilder(
+        valueListenable: CartCollection(),
+        builder: (context, values, child) {
+          final cart = CartCollection();
+          return ListView.builder(
+            itemCount: 25,
+            itemBuilder: (BuildContext context, int index) {
+              CartItem cartItem = CartItem(index: index);
+              bool isAdded = cart.checkIfExists(cartItem: cartItem);
+              return ProductCard(
+                index: index,
+                isAdded: isAdded,
+                onAddOrRemove: (i) {
+                  if (isAdded) {
+                    cart.removeFromCart(cartItem: cartItem);
+                  } else {
+                    cart.addToCart(cartItem: cartItem);
+                  }
+                },
+              );
+            },
+          );
         },
       ),
     );

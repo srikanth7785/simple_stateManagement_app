@@ -1,13 +1,23 @@
 import 'package:flutter/material.dart';
+import 'package:simple_app/dummyData/info.dart';
+import 'package:simple_app/models/product_model.dart';
 
 class ProductCard extends StatelessWidget {
   final int index;
-  const ProductCard({Key? key, required this.index}) : super(key: key);
+  final Product product;
+  final bool isAdded;
+  const ProductCard({
+    Key? key,
+    required this.index,
+    required this.product,
+    required this.isAdded,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     final TextTheme _textTheme = Theme.of(context).textTheme;
-    List<Color> _watchColors = [Colors.deepPurple, Colors.green, Colors.black];
+    List<Color> _watchColors =
+        product.colors.map((color) => Color(int.parse(color))).toList();
     return Card(
       clipBehavior: Clip.antiAlias,
       child: Row(
@@ -20,7 +30,7 @@ class ProductCard extends StatelessWidget {
             ),
             height: 90,
             width: 80,
-            child: Image.asset('assets/purple_watch_1.png'),
+            child: Image.asset(product.imagePath),
           ),
           Expanded(
             child: Padding(
@@ -29,11 +39,11 @@ class ProductCard extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    "Unique Santa Collection #$index",
+                    "${product.title} #$index",
                     style: _textTheme.titleMedium!
                         .copyWith(fontWeight: FontWeight.bold),
                   ),
-                  Text("Analog wrist watch", style: _textTheme.bodyMedium!),
+                  Text(product.subtitle, style: _textTheme.bodyMedium!),
                   FittedBox(
                     child: Container(
                       padding: const EdgeInsets.symmetric(
@@ -53,9 +63,9 @@ class ProductCard extends StatelessWidget {
                           ),
                           Stack(
                             children: [
-                              for (int i = 0; i < 3; i++)
+                              for (int i = 0; i < _watchColors.length; i++)
                                 Container(
-                                  margin: EdgeInsets.only(left: i * 8),
+                                  margin: EdgeInsets.only(left: i * 10),
                                   decoration: BoxDecoration(
                                     color: _watchColors[i],
                                     shape: BoxShape.circle,
@@ -78,12 +88,12 @@ class ProductCard extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Text(
-                        "\u20B9 499",
+                        "\u20B9 ${product.currentPrice}",
                         style: _textTheme.bodyLarge,
                       ),
                       const SizedBox(width: 2),
                       Text(
-                        "999",
+                        product.originalPrice,
                         style: _textTheme.labelMedium!.copyWith(
                           color: Colors.grey,
                           decoration: TextDecoration.lineThrough,
@@ -102,7 +112,7 @@ class ProductCard extends StatelessWidget {
                 color: Colors.black54,
                 padding: const EdgeInsets.all(2),
                 child: Text(
-                  "4.3⭐(2789)",
+                  "${product.rating}⭐(${product.ratingCount})",
                   style: _textTheme.bodySmall!.copyWith(color: Colors.white),
                   textAlign: TextAlign.center,
                 ),
@@ -114,7 +124,12 @@ class ProductCard extends StatelessWidget {
                   shape: BoxShape.circle,
                 ),
                 child: IconButton(
-                  icon: const Icon(Icons.add_shopping_cart,),
+                  icon: isAdded
+                      ? const Icon(
+                          Icons.check_rounded,
+                          color: Colors.deepPurple,
+                        )
+                      : const Icon(Icons.add_shopping_cart),
                   onPressed: () {
                     debugPrint("adding");
                   },
